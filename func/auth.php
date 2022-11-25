@@ -33,12 +33,18 @@ function tryToRegister($user, $password, $repassword){
     }
 
     if($password != $repassword){
-        return "The passwords don't match"
+        return "The passwords don't match";
     }
     pg_query("INSERT INTO ".$db_name."(username, password) VALUES (".$user.", ".md5($password).")");
     return "";
 }
 function logout(){
     session_abort();
+}
+function isLoggedIn(){
+    if(isset($_SESSION['user']) && isset($_SESSION['password'])){
+        return true;
+    }
+    return false;
 }
 ?>
