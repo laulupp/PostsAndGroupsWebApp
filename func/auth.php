@@ -15,13 +15,11 @@ function tryToLogin($user, $password){
         $pwd = pg_fetch_row($res);
         if($pwd[0] == md5($password)){
             session_start();
-            $_auth = true;
             $_SESSION['user'] = $user;
             $_SESSION['password'] = $password;
             return "";
         }
 
-        $_auth=false;
         return "Invalid password";
     }
     return "Invalid username";
@@ -39,5 +37,8 @@ function tryToRegister($user, $password, $repassword){
     }
     pg_query("INSERT INTO ".$db_name."(username, password) VALUES (".$user.", ".md5($password).")");
     return "";
+}
+function logout(){
+    session_abort();
 }
 ?>
