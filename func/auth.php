@@ -15,9 +15,8 @@ function tryToLogin($user, $password, $dbC){
     if(pg_num_rows($res) > 0){
         $pwd = pg_fetch_row($res);
         if($pwd[0] == md5($password)){
-            session_start();
             $_SESSION['user'] = $user;
-            $_SESSION['password'] = $password;
+            //$_SESSION['password'] = $password;
             return "";
         }
 
@@ -29,21 +28,21 @@ function tryToRegister($user, $password, $repassword, $dbC){
     if($user == null || $password == null || $repassword == null){
         return "Please complete all fields";
     }
-    if(checkUserExists($user)){
+    if(checkUserExists($user, $dbC)){
         return "The username already exists";
     }
 
     if($password != $repassword){
         return "The passwords don't match";
     }
-    pg_query("INSERT INTO ".$dbC->db_schema.".".$dbC->db_name."(username, password) VALUES (".$user.", ".md5($password).")");
+    pg_query("INSERT INTO ".$dbC->db_schema.".".$dbC->db_name."(username, password) VALUES ('".$user."', '".md5($password)."')");
     return "";
 }
 function logout(){
-    session_abort();
+    $_SESSION['user'] = null;
 }
 function isLoggedIn(){
-    if(isset($_SESSION['user']) && isset($_SESSION['password'])){
+    if(isset($_SESSION['user'])){
         return true;
     }
     return false;
