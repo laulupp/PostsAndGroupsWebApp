@@ -1,7 +1,7 @@
 <?php 
 
 function checkUserExists($user, $dbC){
-    $res = pg_query("SELECT * FROM ".$dbC->db_schema.".".$dbC->db_name." WHERE username = '".$user."'");
+    $res = pg_query("SELECT * FROM ".$dbC->db_schema.".".$dbC->db_usersTable." WHERE username = '".$user."'");
     if(pg_num_rows($res) > 0){
         return true;
     }
@@ -11,7 +11,7 @@ function tryToLogin($user, $password, $dbC){
     if($user == null || $password == null){
         return "Invalid creditentials";
     }
-    $res = pg_query("SELECT password FROM ".$dbC->db_schema.".".$dbC->db_name." WHERE username = '".$user."'");
+    $res = pg_query("SELECT password FROM ".$dbC->db_schema.".".$dbC->db_usersTable." WHERE username = '".$user."'");
     if(pg_num_rows($res) > 0){
         $pwd = pg_fetch_row($res);
         if($pwd[0] == md5($password)){
@@ -35,7 +35,7 @@ function tryToRegister($user, $password, $repassword, $dbC){
     if($password != $repassword){
         return "The passwords don't match";
     }
-    pg_query("INSERT INTO ".$dbC->db_schema.".".$dbC->db_name."(username, password) VALUES ('".$user."', '".md5($password)."')");
+    pg_query("INSERT INTO ".$dbC->db_schema.".".$dbC->db_usersTable."(username, password) VALUES ('".$user."', '".md5($password)."')");
     return "";
 }
 function logout(){
