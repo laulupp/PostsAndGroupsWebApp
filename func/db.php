@@ -1,5 +1,4 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"]."./env.php";
 
 function dbConnect($dbC){
 

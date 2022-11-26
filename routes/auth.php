@@ -1,7 +1,7 @@
 <?php
     include $_SERVER["DOCUMENT_ROOT"]."/views/partial/auth/header.php";
-    if(isset($_GET['page'])){
-        if($_GET['page']=="register"){
+    if(isset($_POST['page'])){
+        if($_POST['page']=="register"){
             include $_SERVER["DOCUMENT_ROOT"]."/views/register.php";
         }
         else{
