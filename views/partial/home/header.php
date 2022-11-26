@@ -40,4 +40,8 @@
             <input type="hidden" name="page" value="logout">
             <button type="submit"  class="w3-round-large w3-bar-item w3-right w3-button w3-margin w3-blue w3-hover-light-blue w3-border w3-border-blue" style="margin-top:7px !important; margin-bottom: 7px !important; border-width: 3px !important;"><b>Logout</b></button>
         </form>
+
+        <div class="w3-bar-item w3-right w3-text-white w3-container w3-display-container" style="height:64px; margin-right:20px;">
+            <a class="w3-display-middle" style=""><b><?php echo $_SESSION['user'] ?></b></a>
+        </div>
     </div>
