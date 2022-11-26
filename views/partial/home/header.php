@@ -11,6 +11,12 @@
     ?>
     </title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+     .hide {
+       display: none;
+     }
+   </style>
     <script>
         function open() {
             document.getElementById("sidebar").style.display = "block";
@@ -42,6 +48,6 @@
         </form>
 
         <div class="w3-hide-small 3-bar-item w3-right w3-text-white w3-container w3-display-container" style="height:64px; margin-right:20px;">
-            <a class="w3-display-middle" style=""><b><?php echo $_SESSION['user'] ?></b></a>
+            <a class="w3-display-middle" style=""><b><?php echo strtoupper($_SESSION['user'][0]); echo substr($_SESSION['user'], 1); ?></b></a>
         </div>
     </div>

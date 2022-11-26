@@ -11,7 +11,7 @@
             <h3 class="w3-text-blue"><b>Password</b></h3>
             <input name="password" class="w3-input w3-border w3-border-blue w3-round-large w3-opacity" type="password">
             <input type="hidden" name="tryLogin">
-            <input type=hidden name="page" value="login">
+            <input type="hidden" name="page" value="login">
         </div>
         <?php if($message !== null && $message !== ""){ ?>
             <div class="w3-container w3-margin w3-center">

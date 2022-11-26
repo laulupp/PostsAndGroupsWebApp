@@ -10,6 +10,6 @@ if($message!=""){?>
 <div>
     <div class="w3-col l3 m2 s1"><br></div>
     <div class="w3-col l6 m8 s10">
-        <?php showAllPosts($dbC); ?>
+        <?php showUserPosts($dbC); ?>
     </div>
 </div>
