@@ -9,7 +9,7 @@ function checkUserExists($user, $dbC){
 }
 function tryToLogin($user, $password, $dbC){
     if($user == null || $password == null){
-        return "Invalid creditentials";
+        return "Invalid credentials";
     }
     $res = pg_query("SELECT password FROM ".$dbC->db_schema.".".$dbC->db_usersTable." WHERE username = '".$user."'");
     if(pg_num_rows($res) > 0){

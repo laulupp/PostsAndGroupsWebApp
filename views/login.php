@@ -22,10 +22,11 @@
             <button class="w3-round-large w3-button w3-blue w3-hover-light-blue w3-border w3-border-blue"  type="submit" style="font-size:20px; border-width: 3px !important;"><b>Login</b></button>
         </div>
     </form>
-    <form id="form2" method="POST" action="/">
+    <!--<form id="form2" method="POST" action="/">
         <div class="w3-container w3-center w3-text-blue" style="margin-top:5px; margin-bottom:20px;">
             <input type=hidden name="page" value="register">
             <a onclick="document.getElementById('form2').submit();" style="cursor:pointer;"><b>Register here if you don't have an account</b></a>
         </div>
-    </form>
+    </form>-->
+    <a onclick="location.href='/register'" style="cursor:pointer;"><b>Register here if you don't have an account</b></a>
 </div>

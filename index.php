@@ -30,5 +30,4 @@
     } else {
         include $_SERVER["DOCUMENT_ROOT"]."/routes/auth.php";
     }
-
 ?>
