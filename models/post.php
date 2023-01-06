@@ -1,24 +1,46 @@
-<div class="w3-container  w3-pale-blue w3-border w3-border-light-blue w3-round-large w3-display-container" style="margin:auto;margin-top:20px;margin-bottom:10px; border-width:5px !important;">
+<div id="123" class="w3-container  w3-pale-blue w3-border w3-border-light-blue w3-round-large w3-display-container" style="margin:auto;margin-top:20px;margin-bottom:10px; border-width:5px !important;">
     <h2 class="w3-center w3-margin w3-text-dark-gray"><b><?php echo $title; ?></b></h2>
-    <a onclick="location.href='/viewpost?postid=<?php echo $postid;?>'" style="font-size:35px; cursor:pointer;" class="w3-margin w3-text-orange w3-margin w3-display-topleft fa fa-arrow-right"></a>
+    <?php if(!(isset($_GET['page']) && ($_GET['page']=="viewpost" || $_GET['page']=="tryCreateComment" ))){ ?>
+        <a onclick="location.href='/index.php?page=viewpost&postid=<?php echo $postid;?>'" style="font-size:35px; cursor:pointer;" class="w3-margin w3-text-orange w3-margin w3-display-topleft fa fa-arrow-right"></a>
+    <?php } else{ ?>
+        <a onclick="location.href='/index.php?page=home'" style="font-size:35px; cursor:pointer;" class="w3-margin w3-text-orange w3-margin w3-display-topleft fa fa-arrow-left"></a>
+    <?php } ?>
     <?php if(strtoupper($_SESSION['user'])==strtoupper($owner)){ ?>
     <div class="w3-display-topright w3-display-container w3-container w3-margin" style="height:30px;width:80px;">
-        <form method="POST" id="form<?php echo $postid;?>" action="/">
-            <input type="hidden" name="page" value="tryDelete">
+        <form method="POST" id="form<?php echo $postid;?>" action="/index.php?page=tryDelete">
+            <!--<input type="hidden" name="page" value="tryDelete">-->
             <input type="hidden" name="nextpg" value="<?php echo $nextpg;?>">
             <input type="hidden" name="postID" value="<?php echo $postid; ?>">
             <a onclick="document.getElementById('form<?php echo $postid; ?>').submit();" class="w3-display-right fa fa-trash w3-text-red" style="cursor:pointer;font-size:35px;"></a>
         </form>
-        <!--<form method="POST" id="form<?php echo $postid;?>Edit" action="/">
+        <!--<form method="POST" id="form<?php //echo $postid;?>Edit" action="/">
             <input type="hidden" name="page" value="tryEdit">
-            <input type="hidden" name="nextpg" value="<?php echo $nextpg;?>">
-            <input type="hidden" name="postID" value="<?php echo $postid; ?>">
-            <a onclick="document.getElementById('form<?php echo $postid; ?>Edit').submit();" class="w3-display-left fa fa-edit w3-text-orange" style="cursor:pointer;font-size:35px; padding-top:4px;"></a>
+            <input type="hidden" name="nextpg" value="<?php //echo $nextpg;?>">
+            <input type="hidden" name="postID" value="<?php //echo $postid; ?>">
+            <a onclick="document.getElementById('form<?php //echo $postid; ?>Edit').submit();" class="w3-display-left fa fa-edit w3-text-orange" style="cursor:pointer;font-size:35px; padding-top:4px;"></a>
         </form>-->
     </div>
     <?php } ?>
 
     <h3 class="w3-center w3-margin w3-text-gray">Publisher: <b><?php echo $owner; ?></b></h3>
+    <div style="width:80%;margin:auto;">
+        <h4><b>Topics</b></h4>
+        <?php $text = showTopicsOfPost($dbC, $postid);
+        if($text == "There area no topics associated with this post"){
+        ?>
+        <p style="color: #FFACAB;">
+            <?php 
+                echo $text;
+            ?>
+        </p>
+        <?php } else { ?>
+        <p class="w3-text-light-blue"><b>
+            <?php 
+                echo $text;
+            ?>
+        </b></p>
+        <?php } ?>
+    </div>
     <div style="width:80%;margin:auto;">
         <h4><b>Short description</b></h4>
         <!--<textarea readonly class="w3-container w3-light-gray w3-border w3-border-light-blue w3-round-large" style="font-size:17px; height:32px; width:100%; border-width:3px !important;resize:none;"></textarea>

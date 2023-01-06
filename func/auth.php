@@ -11,11 +11,12 @@ function tryToLogin($user, $password, $dbC){
     if($user == null || $password == null){
         return "Invalid credentials";
     }
-    $res = pg_query("SELECT password FROM ".$dbC->db_schema.".".$dbC->db_usersTable." WHERE username = '".$user."'");
+    $res = pg_query("SELECT password,id FROM ".$dbC->db_schema.".".$dbC->db_usersTable." WHERE username = '".$user."'");
     if(pg_num_rows($res) > 0){
         $pwd = pg_fetch_row($res);
         if($pwd[0] == md5($password)){
             $_SESSION['user'] = $user;
+            $_SESSION['userid'] = $pwd[1];
             //$_SESSION['password'] = $password;
             return "";
         }

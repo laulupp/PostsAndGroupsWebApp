@@ -1,5 +1,5 @@
 <div class="w3-container w3-border w3-border-blue w3-pale-blue w3-round-large w3-col s10 m6 l4 w3-display-middle" style="border-width: 3px !important;">
-     <form class="w3-container w3-margin" method="POST" action="/">
+     <form class="w3-container w3-margin" method="POST" action="/auth.php?page=register">
         <div class="w3-container">
             <h1 class="w3-center w3-text-blue" ><b>Register</b></h1>
         </div>
@@ -14,8 +14,7 @@
         <div class="w3-container w3-margin">
             <h3 class="w3-text-blue"><b>Re-type Password</b></h3>
             <input name="password2" class="w3-input w3-border w3-border-blue w3-round-large w3-opacity" type="password">
-            <input type="hidden" name="tryRegister">
-            <input type=hidden name="page" value="register">
+            <input name="tryRegister" hidden value="true">
         </div>
         <?php if($message !== null && $message !== ""){ ?>
             <div class="w3-container w3-margin w3-center">
@@ -27,10 +26,7 @@
         </div>
         
     </form>
-    <form id="form2" method="POST" action="/">
-        <div class="w3-container w3-center w3-text-blue" style="margin-top:5px; margin-bottom:20px;">
-            <input type=hidden name="page" value="login">
-            <a onclick="document.getElementById('form2').submit();" style="cursor:pointer;"><b>Login here if you already have an account</b></a>
-        </div>
-    </form>
+    <div class="w3-center w3-margin">
+        <a onclick="location.href='/auth.php?page=login'" style="cursor:pointer;" class="w3-text-blue w3-hover-text-gray"><b>Login here if you already have an account</b></a>
+    </div>
 </div>
