@@ -14,7 +14,7 @@
         </div>
         <div class="w3-container w3-margin">
             <h3 class="w3-text-white"><b>Content</b></h3>
-            <textarea name="longd" rows="5" class="w3-input w3-border w3-border-blue w3-round-large w3-opacity" type="text"></textarea>
+            <textarea style="resize: none;" name="longd" rows="5" class="w3-input w3-border w3-border-blue w3-round-large w3-opacity" type="text"></textarea>
         </div>
 
         <div>
