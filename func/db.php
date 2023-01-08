@@ -15,8 +15,8 @@ function dbConnect($dbC){
             pg_query("CREATE TABLE IF NOT EXISTS ".$dbC->db_schema.".".$dbC->db_topicsTable."( id SERIAL primary key not null, topic Varchar(255) not null)");
             pg_query("CREATE TABLE IF NOT EXISTS ".$dbC->db_schema.".".$dbC->db_resolverUserGroup."( id SERIAL primary key not null, userid Integer not null, groupid Integer not null)");
             pg_query("CREATE TABLE IF NOT EXISTS ".$dbC->db_schema.".".$dbC->db_resolverPostTopic."( id SERIAL primary key not null, postid Integer not null, topicid Integer not null)");
-            pg_query("CREATE TABLE IF NOT EXISTS ".$dbC->db_schema.".".$dbC->db_group."( id SERIAL primary key not null, groupkey Integer not null)");
-            pg_query("CREATE TABLE IF NOT EXISTS ".$dbC->db_schema.".".$dbC->db_messages."( id SERIAL primary key not null, groupid Integer not null, ownerid Integer not null, text Varchar(500) not null)");
+            pg_query("CREATE TABLE IF NOT EXISTS ".$dbC->db_schema.".".$dbC->db_groups."( id SERIAL primary key not null, groupkey Integer not null, ownerid Integer not null)");
+            pg_query("CREATE TABLE IF NOT EXISTS ".$dbC->db_schema.".".$dbC->db_messages."( id SERIAL primary key not null, groupid Integer not null, ownerid Integer not null, text Varchar(500) not null, createdAt Timestamp DEFAULT NOW())");
             return true;
         }
         echo "No DB connection";

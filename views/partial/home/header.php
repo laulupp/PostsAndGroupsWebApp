@@ -57,9 +57,9 @@
         <div class="w3-dropdown-hover">
             <button onclick="location.href='index.php?page=home'" style="height:64px; vertical-align:center;"; class="w3-text-white w3-button w3-light-blue w3-hover-blue"><b>Groups</b></button>
             <div class="w3-dropdown-content w3-bar-block" style="width:200px;">
-                <button onclick="location.href='index.php?page=addpost'"  style="height:64px; vertical-align:center;"; class="w3-left w3-text-white w3-bar-item w3-button w3-light-blue w3-hover-blue"><b>My Groups</b></button>
-                <button onclick="location.href='index.php?page=addpost'"  style="height:64px; vertical-align:center;"; class="w3-left w3-text-white w3-bar-item w3-button w3-light-blue w3-hover-blue"><b>Join a group</b></button>
-                <button onclick="location.href='index.php?page=myposts'" style="height:64px; vertical-align:center;"; class="w3-left w3-text-white w3-bar-item w3-button w3-light-blue w3-hover-blue"><b>Create a group</b></button>
+                <button onclick="location.href='index.php?page=myGroups'"  style="height:64px; vertical-align:center;"; class="w3-left w3-text-white w3-bar-item w3-button w3-light-blue w3-hover-blue"><b>My Groups</b></button>
+                <button onclick="location.href='index.php?page=joinGroup'"  style="height:64px; vertical-align:center;"; class="w3-left w3-text-white w3-bar-item w3-button w3-light-blue w3-hover-blue"><b>Join a group</b></button>
+                <button onclick="location.href='index.php?page=createGroup'" style="height:64px; vertical-align:center;"; class="w3-left w3-text-white w3-bar-item w3-button w3-light-blue w3-hover-blue"><b>Create a group</b></button>
             </div>
         </div>
 

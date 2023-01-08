@@ -14,7 +14,7 @@
             public $db_topicsTable = "topics";
             public $db_resolverUserGroup = "resolverUserGroup";
             public $db_resolverPostTopic = "resolverPostTopic";
-            public $db_group = "group";
+            public $db_groups = "groups";
             public $db_messages = "messages";
       }
 
