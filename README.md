@@ -2,7 +2,7 @@
 A simple webapp built with PHP, HTML/CSS (w3.css) and PostgreSQL.
 It has the following features:
 - auth system (login/register).
-- posts system (create/delete posts), topics selector.
+- posts system (create/delete posts) and topics selector.
 - it allows users add comments to each post.
 - groups system (create/join groups) and chat with other people.
 
