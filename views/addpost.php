@@ -1,7 +1,7 @@
 
 
 <div class="w3-col l4 m3 s1"><br/></div>
-<div class="w3-container w3-col l4 m6 s10 w3-round-large w3-blue w3-border w3-border-light-blue" style="border-width: 6px !important;margin-top:20px;">
+<div class="w3-container w3-col l4 m6 s10 w3-round-large w3-blue w3-border w3-border-light-blue" style="border-width: 6px !important;margin-top:20px;margin-bottom:20px;">
     <form onsubmit="return handleData()" method="POST" action="/index.php?page=tryCreatePost">
         <h1 class="w3-center w3-margin"><b>Create a Post</b></h1>
         <div class="w3-container w3-margin">
